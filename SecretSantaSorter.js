@@ -1,12 +1,12 @@
-// Write a function that takes in an array of names then pairs up each name with another in the same array, and returns an array of paired names
+// Write a function that takes in an array of names then pairs up each name with another in a copy of the array, and returns an array of paired names
 // 1. Cannot be an empty array
 // 2. Must test to ensure the two names paired are NOT the same
 // HOW TO MAKE IT WORK
 // 1. An array is entered as an argument <= test to ensure it's not empty
 // 2. A copy of the array is created
-// 3. Loop over the original array
-// 4. For each name in the array, a random name from the second array is paired, and each name is returned in a new Array
-// 5. The name from the second array is removed from the array, so it can't be used again
+// 3. The copy array is shuffled
+// 4. Each name in the original array is paired with a name at the same index
+// 5. IF the two names to be paired are the same, the loop is stopped and restarted, to ensure each person in the list gets someone else.
 
 function secretSantaSorter(arr) {
     if (arr.length === 0) {
@@ -20,7 +20,6 @@ function secretSantaSorter(arr) {
         if(arr[i] === copy[i]) {
             copy = shuffle(copy);
             i = -1; // If there are any values the same, start the for loop again
-            continue;
         }
     }
 
